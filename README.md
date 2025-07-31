@@ -1,10 +1,10 @@
-# Web Development Final Project - *Name of App Here*
+# Web Development Final Project - *Forum for the Arts*
 
-Submitted by: **Your Name Here**
+Submitted by: **Janira Gayle**
 
 This web app: **insert description**
 
-Time spent: **X** hours spent in total
+Time spent: **2** hours spent in total
 
 ## Required Features
 
@@ -16,14 +16,14 @@ The following **required** functionality is completed:
   - Forms should have the *option* for users to add: 
     - additional textual content
     - an image added as an external image URL
-- [ ] **Web app includes a home feed displaying previously created posts**
+- [X] **Web app includes a home feed displaying previously created posts**
   - Web app must include home feed displaying previously created posts
   - By default, each post on the posts feed should show only the post's:
     - creation time
     - title 
     - upvotes count
   - Clicking on a post should direct the user to a new page for the selected post
-- [ ] **Users can view posts in different ways**
+- [X] **Users can view posts in different ways**
   - Users can sort posts by either:
     -  creation time
     -  upvotes count
