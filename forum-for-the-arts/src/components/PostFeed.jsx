@@ -1,27 +1,40 @@
-// src/components/PostFeed.jsx
+// PostFeed.jsx
 import { useNavigate } from 'react-router-dom'
 
 export default function PostFeed({ posts }) {
   const navigate = useNavigate()
 
   return (
-    <div className="post-feed">
+    <div className="space-y-4">
       {posts.length === 0 ? (
-        <p className="no-posts">No posts found.</p>
+        <p>No posts found.</p>
       ) : (
-        posts.map((post) => (
-          <div
-            key={post.post_id}
-            className="post-card"
-            onClick={() => navigate(`/post/${post.post_id}`)}
-          >
-            <h3 className="post-title">{post.title}</h3>
-            <p className="post-medium">Medium: {post.medium}</p>
-            <p>{post.body}</p>
-            <p className="post-upvotes">Upvotes: {post.upvotes}</p>
-          </div>
-        ))
+        posts.map((post) => {
+          const date = new Date(post.created_at).toLocaleString(undefined, {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+          })
+
+          return (
+            <div
+              key={post.post_id}
+              className="post-card"
+              onClick={() => navigate(`/post/${post.post_id}`)}
+            >
+              <h3>{post.title}</h3>
+              <p><strong>Medium:</strong> {post.medium}</p>
+              {post.image_url && (
+                <img src={post.image_url} alt="Post preview" className="post-image" style={{ maxWidth: '100%', borderRadius: '6px', marginBottom: '0.5rem' }} />
+              )}
+              <p>{post.body}</p>
+              <p className="post-meta">🕒 {date} | 👍 {post.upvotes}</p>
+            </div>
+          )
+        })
       )}
     </div>
   )
-}
+} 
